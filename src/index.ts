@@ -19,6 +19,11 @@ let mySize: Size = Size.Medium;
 console.log(mySize);
 // enum Size { Small = 's', Medium = 'm', Large = 'l' }; // by default - 0, 1, 2
 
-function calculateTax(income: number): number {
-  return 0;
+// Function
+function calculateTax(income: number, taxYear: number = 2022): number {
+  if (taxYear < 2022)
+    return income * 1.25;
+  return income * 1.3;
 }
+calculateTax(10_000, 2023);
+
