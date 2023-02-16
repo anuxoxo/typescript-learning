@@ -20,6 +20,7 @@ console.log(mySize);
 // enum Size { Small = 's', Medium = 'm', Large = 'l' }; // by default - 0, 1, 2
 
 // Function
+//  taxYear? -> makes it optional
 function calculateTax(income: number, taxYear: number = 2022): number {
   if (taxYear < 2022)
     return income * 1.25;
@@ -27,3 +28,32 @@ function calculateTax(income: number, taxYear: number = 2022): number {
 }
 calculateTax(10_000, 2023);
 
+// Type alias
+type Employee = {
+  readonly id: number,
+  name: string,
+  retire: (date: Date) => void
+}
+
+// Objects 
+let employee: Employee = {
+  id: 1,
+  name: "Anu",
+  retire: (date: Date) => {
+    console.log(date)
+  }
+};
+
+// Union Types (a|b)
+function kgToLbs(weight: number | string): number {
+  // Narrowing
+  if (typeof weight === 'number')
+    return weight * 2.2;
+  else
+    return parseInt(weight) * 2.2;
+}
+
+kgToLbs(10);
+kgToLbs('10kg');
+
+// 
